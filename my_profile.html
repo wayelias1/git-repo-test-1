@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ana García - Desarrolladora Web</title>
-    <link rel="stylesheet" href="./my_profile.css"/>
+    <title>Elias Cordova - Desarrollador Web</title>
+    <link rel="stylesheet" href="my_profile.css"/>
+    <link rel="stylesheet" href="slider.css">
+    <link rel="icon" type="image/png" href="E.webp">
+    
 </head>
 <body>
     <!-- HEADER -->
     <header>
         <nav>
-            <div class="logo">Ana García</div>
+            <div class="logo"><img src="E.webp" alt="Elias Cordova" class="logo-icon"><p>Elias Cordova</p></div>
             <ul class="nav-links">
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#sobre-mi">Sobre mí</a></li>
@@ -24,8 +27,8 @@
     <!-- HERO SECTION -->
     <section class="hero" id="inicio">
         <div class="hero-content">
-            <h1>¡Hola! Soy Ana García</h1>
-            <p>Desarrolladora Web Frontend apasionada por crear experiencias digitales increíbles</p>
+            <h1>¡Hola! Soy Elias</h1>
+            <p>Desarrollador Web Frontend apasionado por crear experiencias digitales increíbles</p>
             <a href="#proyectos" class="cta-button">Ver mis proyectos</a>
         </div>
     </section>
@@ -39,7 +42,7 @@
                     👩‍💻
                 </div>
                 <div class="about-text">
-                    <p>Soy una desarrolladora web frontend con 2 años de experiencia creando sitios web modernos y responsivos. Me especializo en HTML, CSS y JavaScript, y me encanta transformar diseños creativos en código funcional.</p>
+                    <p>Soy un desarrollador web frontend con 2 años de experiencia creando sitios web modernos y responsivos. Me especializo en HTML, CSS y JavaScript, y me encanta transformar diseños creativos en código funcional.</p>
                     
                     <p>Mi pasión por la tecnología comenzó durante mis estudios universitarios, donde descubrí el poder de crear experiencias digitales que realmente impacten a los usuarios. Desde entonces, he trabajado en diversos proyectos, desde landing pages hasta aplicaciones web complejas.</p>
                     
@@ -50,8 +53,8 @@
     </section>
 
     <!-- HABILIDADES -->
-    <section class="skills" id="habilidades">
-        <div class="container">
+    <section class="c-slider skills" id="habilidades">
+        <div class="container" id="slider">
             <h2>Mis Habilidades</h2>
             <div class="skills-grid">
                 <div class="skill-card">
@@ -75,7 +78,13 @@
                     <p>Adaptable a todos los dispositivos</p>
                 </div>
             </div>
+            <i id="btn-izq">&#60;</i>
+            <i id="btn-der">&#62;</i>
         </div>
+            <button id="toggle-slider">
+                <i id="play-icon">&#9658;</i> <!-- Ícono de play -->
+                <i id="pause-icon" style="display: none;">||</i> <!-- Ícono de pausa -->
+            </button>
     </section>
 
     <!-- PROYECTOS -->
@@ -119,24 +128,24 @@
             <div class="contact-info">
                 <div class="contact-item">
                     <span>📧</span>
-                    <span>ana.garcia@email.com</span>
+                    <span>wayelias13@gmail.com</span>
                 </div>
                 <div class="contact-item">
                     <span>📱</span>
-                    <span>+34 123 456 789</span>
+                    <span>+58 4169332158</span>
                 </div>
                 <div class="contact-item">
                     <span>📍</span>
-                    <span>Madrid, España</span>
+                    <span>Venezuela, caracas</span>
                 </div>
             </div>
         </div>
     </section>
-
+    <script type="text/javascript" src="carousel.js"></script>
     <!-- FOOTER -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 Ana García. Todos los derechos reservados.</p>
+            <p>&copy; 2025 Elias Cordova. Todos los derechos reservados.</p>
         </div>
     </footer>
 
