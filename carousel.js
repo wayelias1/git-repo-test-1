@@ -2,17 +2,16 @@ document.addEventListener("DOMContentLoaded", function () {
     let slider = document.querySelector(".skills-grid");
     let siguiente = document.getElementById("btn-der");
     let anterior = document.getElementById("btn-izq");
-    let toggleButton = document.getElementById("toggle-slider");
-    let playIcon = document.getElementById("play-icon");
-    let pauseIcon = document.getElementById("pause-icon");
 
     let sections = slider.querySelectorAll(".skill-card");
     let position = 0;
-    let slideWidth = 400 + 32; // 400px + 2rem
-    let interval = null;
-    let isRunning = false;
+    let slideWidth = 400 + 32; // Tamaño de la tarjeta + gap
+    let isMoving = false; // Variable para evitar spam
 
     function moverD() {
+        if (isMoving) return; // Si ya está en movimiento, no hacer nada
+        isMoving = true; // Bloquear nuevos clics
+
         position -= slideWidth;
         slider.style.transition = "transform 0.7s ease-in-out";
         slider.style.transform = `translateX(${position}px)`;
@@ -23,11 +22,14 @@ document.addEventListener("DOMContentLoaded", function () {
             slider.style.transition = "none";
             position += slideWidth;
             slider.style.transform = `translateX(${position}px)`;
+            isMoving = false; // Desbloquear clics después de la animación
         }, 700);
     }
 
-    siguiente.addEventListener("click", moverD);
-    anterior.addEventListener("click", function () {
+    function moverI() {
+        if (isMoving) return; // Evita que se dispare varias veces
+        isMoving = true;
+
         position += slideWidth;
         slider.style.transition = "transform 0.7s ease-in-out";
         slider.style.transform = `translateX(${position}px)`;
@@ -38,23 +40,10 @@ document.addEventListener("DOMContentLoaded", function () {
             slider.style.transition = "none";
             position -= slideWidth;
             slider.style.transform = `translateX(${position}px)`;
+            isMoving = false;
         }, 700);
-    });
+    }
 
-    // Activar/desactivar el slider infinito
-    toggleButton.addEventListener("click", function () {
-        if (isRunning) {
-            clearInterval(interval);
-            isRunning = false;
-            playIcon.style.display = "inline"; // Mostrar icono de play
-            pauseIcon.style.display = "none";  // Ocultar icono de pausa
-        } else {
-            interval = setInterval(moverD, 2000); // Mueve cada 2 segundos
-            isRunning = true;
-            playIcon.style.display = "none";  // Ocultar icono de play
-            pauseIcon.style.display = "inline"; // Mostrar icono de pausa
-			pauseIcon.style.fontWeight = "bold"; // Aumenta grosor del icono
-
-        }
-    });
+    siguiente.addEventListener("click", moverD);
+    anterior.addEventListener("click", moverI);
 });
